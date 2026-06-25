@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica El Castaño · Propuesta Estratégica 2026–2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --rojo: #CB2C37;
+    --naranja: #F59727;
+    --dark: #342F31;
+    --white: #FFFFFF;
+    --gris-claro: #F5F4F4;
+    --gris-medio: #9E9A9B;
+    --gris-linea: #E8E6E6;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 2px solid var(--gris-linea);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 64px;
+  }
+  .nav-logo {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--rojo);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gris-medio);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+  }
+  .nav-links a:hover { color: var(--rojo); background: var(--gris-claro); }
+
+  /* SECCIONES */
+  section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 40px 80px;
+    text-align: center;
+  }
+
+  /* EYEBROW */
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--naranja);
+    margin-bottom: 20px;
+  }
+
+  /* TÍTULOS */
+  h1 {
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 900;
+    line-height: 1.0;
+    color: var(--dark);
+    margin-bottom: 24px;
+  }
+  h2 {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+  .subtitle {
+    font-size: clamp(16px, 2vw, 22px);
+    font-weight: 400;
+    color: var(--gris-medio);
+    max-width: 680px;
+    line-height: 1.6;
+    margin: 0 auto 40px;
+  }
+
+  /* LÍNEA DIVISORA */
+  .divider {
+    width: 60px;
+    height: 4px;
+    background: var(--naranja);
+    margin: 0 auto 40px;
+    border-radius: 2px;
+  }
+
+  /* ===================== HERO ===================== */
+  #hero {
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,151,39,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-fecha {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gris-medio);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .hero-titulo-rojo { color: var(--rojo); }
+  .hero-linea-naranja {
+    display: inline-block;
+    border-bottom: 6px solid var(--naranja);
+    padding-bottom: 4px;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--rojo);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 40px;
+  }
+
+  /* ===================== MÉTRICAS RÁPIDAS ===================== */
+  .metrics-strip {
+    background: var(--dark);
+    padding: 48px 40px;
+    text-align: center;
+  }
+  .metrics-strip .eyebrow { color: var(--naranja); margin-bottom: 32px; }
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .metric-item {
+    background: rgba(255,255,255,0.04);
+    padding: 32px 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .metric-numero {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .metric-numero span { color: var(--naranja); }
+  .metric-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ===================== SECCIÓN ESTÁNDAR ===================== */
+  .section-light { background: var(--white); }
+  .section-grey { background: var(--gris-claro); }
+
+  .section-header { max-width: 800px; margin: 0 auto 60px; }
+  .fase-badge {
+    display: inline-block;
+    border: 2px solid var(--rojo);
+    color: var(--rojo);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  /* CARDS */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--gris-linea);
+    padding: 36px 28px;
+    text-align: center;
+    border-radius: 2px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .section-grey .card { background: var(--white); }
+  .card-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--dark);
+  }
+  .card p {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--gris-medio);
+    line-height: 1.6;
+  }
+  .card .card-stat {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--rojo);
+    margin-bottom: 6px;
+    display: block;
+  }
+  .card .card-stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gris-medio);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* TABLA DIAGNÓSTICO */
+  .diag-table {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  .diag-table th {
+    background: var(--dark);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 24px;
+    text-align: center;
+  }
+  .diag-table td {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--gris-linea);
+    text-align: center;
+    font-weight: 500;
+  }
+  .diag-table tr:nth-child(even) td { background: var(--gris-claro); }
+  .tag-ok {
+    display: inline-block;
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+  }
+  .tag-opp {
+    display: inline-block;
+    background: #fff3e0;
+    color: #e65100;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+  }
+  .tag-sin {
+    display: inline-block;
+    background: #fce4ec;
+    color: #c62828;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 40px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--gris-linea);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -34px; top: 4px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--naranja);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--naranja);
+  }
+  .tl-mes {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--naranja);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .tl-titulo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+  .tl-desc {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gris-medio);
+    line-height: 1.6;
+  }
+
+  /* CRECIMIENTO VISUAL */
+  .growth-bar-container {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto 48px;
+  }
+  .growth-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .growth-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark);
+    width: 160px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .growth-track {
+    flex: 1;
+    background: var(--gris-claro);
+    height: 32px;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+  .growth-fill {
+    height: 100%;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--white);
+    transition: width 1.5s ease;
+  }
+  .fill-antes { background: var(--gris-medio); }
+  .fill-despues { background: var(--rojo); }
+
+  /* CASO WEBINAR */
+  .caso-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .caso-col { }
+  .caso-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--naranja);
+    margin-bottom: 12px;
+  }
+  .caso-numero {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 900;
+    color: var(--dark);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .caso-desc {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--gris-medio);
+    line-height: 1.6;
+  }
+  .caso-highlight {
+    background: var(--rojo);
+    color: var(--white);
+    padding: 32px;
+    border-radius: 2px;
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+  .caso-highlight .caso-numero { color: var(--white); }
+  .caso-highlight .caso-desc { color: rgba(255,255,255,0.8); }
+
+  /* INVERSIÓN ROI */
+  .roi-box {
+    background: var(--dark);
+    color: var(--white);
+    padding: 48px 40px;
+    max-width: 700px;
+    width: 100%;
+    margin: 40px auto 0;
+    text-align: center;
+    border-radius: 2px;
+  }
+  .roi-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--naranja);
+    margin-bottom: 12px;
+  }
+  .roi-numero {
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .roi-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* NUEVA PROPUESTA */
+  .propuesta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2px;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .prop-item {
+    background: var(--white);
+    padding: 40px 28px;
+    border: 1px solid var(--gris-linea);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .prop-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--naranja);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+  .prop-item:hover::after { transform: scaleX(1); }
+  .prop-num {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--naranja);
+    letter-spacing: 0.14em;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .prop-titulo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+  .prop-desc {
+    font-size: 14px;
+    color: var(--gris-medio);
+    line-height: 1.6;
+  }
+
+  /* ROADMAP */
+  .roadmap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid var(--gris-linea);
+  }
+  .rm-col {
+    padding: 36px 24px;
+    border-right: 1px solid var(--gris-linea);
+    text-align: center;
+  }
+  .rm-col:last-child { border-right: none; }
+  .rm-fase {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--naranja);
+    margin-bottom: 8px;
+  }
+  .rm-periodo {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+  .rm-items {
+    list-style: none;
+    text-align: left;
+    display: inline-block;
+  }
+  .rm-items li {
+    font-size: 13px;
+    color: var(--gris-medio);
+    margin-bottom: 8px;
+    padding-left: 16px;
+    position: relative;
+    font-weight: 500;
+  }
+  .rm-items li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--naranja);
+    font-size: 11px;
+  }
+
+  /* KPIs */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .kpi-item {
+    background: var(--gris-claro);
+    padding: 32px 20px;
+    text-align: center;
+    border: 1px solid var(--gris-linea);
+  }
+  .kpi-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+  .kpi-nombre {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+  .kpi-meta {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--rojo);
+  }
+
+  /* CIERRE */
+  #cierre {
+    background: var(--dark);
+    color: var(--white);
+  }
+  #cierre h2 { color: var(--white); }
+  #cierre .eyebrow { color: var(--naranja); }
+  #cierre .subtitle { color: rgba(255,255,255,0.6); }
+  .cierre-firma {
+    margin-top: 60px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.08em;
+  }
+  .cierre-firma span { color: var(--naranja); }
+
+  /* SEPARADOR DE SECCIÓN */
+  .section-sep {
+    width: 100%;
+    height: 2px;
+    background: var(--gris-linea);
+  }
+
+  /* NOTA AL PIE DE DIAGNÓSTICO */
+  .nota {
+    font-size: 12px;
+    color: var(--gris-medio);
+    font-style: italic;
+    margin-top: 16px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 100px 24px 60px; }
+    .caso-grid { grid-template-columns: 1fr; }
+    .caso-highlight { grid-column: 1 / -1; }
+    .roadmap { grid-template-columns: 1fr; }
+    .rm-col { border-right: none; border-bottom: 1px solid var(--gris-linea); }
+    .metrics-strip { padding: 40px 24px; }
+    .growth-label { width: 110px; font-size: 11px; }
+    .diag-table { font-size: 13px; }
+    .diag-table th, .diag-table td { padding: 12px 12px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Clínica El Castaño</div>
+  <ul class="nav-links">
+    <li><a href="#diagnostico">Diagnóstico</a></li>
+    <li><a href="#logros">Logros</a></li>
+    <li><a href="#unidades">Ecosistema</a></li>
+    <li><a href="#caso">Caso Real</a></li>
+    <li><a href="#propuesta">Propuesta</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#kpis">KPIs</a></li>
+    <li><a href="#benchmark">Mercado</a></li>
+  </ul>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero" class="section-light">
+  <div class="hero-fecha">Junio 2026</div>
+  <div class="hero-tag">Presentación Estratégica</div>
+  <h1>
+    Del contenido<br>
+    <span class="hero-titulo-rojo hero-linea-naranja">al resultado.</span>
+  </h1>
+  <p class="subtitle">
+    Más de dos años construyendo juntos una presencia digital sólida y confiable.
+    Hoy proponemos dar el siguiente paso: pasar de comunicar a crecer.
+  </p>
+  <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-top:8px;">
+    <div style="text-align:center;">
+      <div style="font-size:clamp(32px,5vw,56px); font-weight:900; color:var(--rojo); line-height:1;">+176%</div>
+      <div style="font-size:12px; font-weight:700; color:var(--gris-medio); letter-spacing:0.08em; text-transform:uppercase; margin-top:4px;">Crecimiento en seguidores</div>
+    </div>
+    <div style="width:1px; background:var(--gris-linea);"></div>
+    <div style="text-align:center;">
+      <div style="font-size:clamp(32px,5vw,56px); font-weight:900; color:var(--rojo); line-height:1;">96.500</div>
+      <div style="font-size:12px; font-weight:700; color:var(--gris-medio); letter-spacing:0.08em; text-transform:uppercase; margin-top:4px;">Visualizaciones en 10 días</div>
+    </div>
+    <div style="width:1px; background:var(--gris-linea);"></div>
+    <div style="text-align:center;">
+      <div style="font-size:clamp(32px,5vw,56px); font-weight:900; color:var(--rojo); line-height:1;">$400k</div>
+      <div style="font-size:12px; font-weight:700; color:var(--gris-medio); letter-spacing:0.08em; text-transform:uppercase; margin-top:4px;">Inversión que multiplicó resultados</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FASE 1: DIAGNÓSTICO ===== -->
+<section id="diagnostico" class="section-grey">
+  <div class="section-header">
+    <div class="fase-badge">Fase 1</div>
+    <h2>Diagnóstico actual</h2>
+    <div class="divider"></div>
+    <p class="subtitle">Dónde estamos hoy. Una lectura honesta de cada canal.</p>
+  </div>
+
+  <table class="diag-table">
+    <thead>
+      <tr>
+        <th>Canal</th>
+        <th>Estado</th>
+        <th>Dato clave</th>
+        <th>Oportunidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Instagram</strong></td>
+        <td><span class="tag-ok">ACTIVO</span></td>
+        <td>9.125 seguidores · 510 clics al link</td>
+        <td>Potenciar con pauta y contenido estratégico</td>
+      </tr>
+      <tr>
+        <td><strong>Facebook</strong></td>
+        <td><span class="tag-opp">SUBUTILIZADO</span></td>
+        <td>11.000 seguidores · 13 reseñas solamente</td>
+        <td>Reseñas y campañas de captación de pacientes</td>
+      </tr>
+      <tr>
+        <td><strong>Página web</strong></td>
+        <td><span class="tag-opp">MEJORABLE</span></td>
+        <td>WordPress · Analytics instalado (G-VT0MV00MNH)</td>
+        <td>Migración a código puro, velocidad y SEO real</td>
+      </tr>
+      <tr>
+        <td><strong>LinkedIn</strong></td>
+        <td><span class="tag-ok">CREADO POR NOSOTROS</span></td>
+        <td>Perfil institucional desarrollado desde cero</td>
+        <td>Activación y posicionamiento para captar profesionales y prestigio institucional</td>
+      </tr>
+      <tr>
+        <td><strong>Google Business</strong></td>
+        <td><span class="tag-opp">A VERIFICAR</span></td>
+        <td>Presencia en Maps sin optimizar</td>
+        <td>Reseñas Google + SEO local = más turnos</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="nota">
+    * Para la Fase de Investigación se realizará un benchmark completo con datos reales de la competencia local y market share. Esto requiere colaboración con Gerencia Operativa y Comercial.
+  </p>
+</section>
+
+<!-- ===== FASE 2: LOGROS ===== -->
+<section id="logros" class="section-light">
+  <div class="section-header">
+    <div class="fase-badge">Fase 2</div>
+    <h2>Lo que construimos juntos</h2>
+    <div class="divider"></div>
+    <p class="subtitle">Septiembre 2024 — Junio 2026. Dos años de trabajo estratégico que transformaron la presencia digital de la clínica.</p>
+  </div>
+
+  <!-- Barras de crecimiento -->
+  <div class="growth-bar-container">
+    <div class="growth-row">
+      <div class="growth-label">Sep 2024</div>
+      <div class="growth-track">
+        <div class="growth-fill fill-antes" style="width:36%">3.300</div>
+      </div>
+    </div>
+    <div class="growth-row">
+      <div class="growth-label">Hoy · Jun 2026</div>
+      <div class="growth-track">
+        <div class="growth-fill fill-despues" style="width:100%">9.125 seguidores</div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:8px;">
+      <span style="font-size:13px; font-weight:700; color:var(--naranja);">+176% de crecimiento en 21 meses · +5.825 seguidores reales</span>
+    </div>
+  </div>
+
+  <!-- Timeline de hitos -->
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-mes">Septiembre 2024</div>
+      <div class="tl-titulo">Inicio de la estrategia digital</div>
+      <div class="tl-desc">Definición del estilo visual institucional, paleta de marca y voz comunicacional. Se establece una presencia digital coherente y profesional para la clínica en todos los canales.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-mes">Octubre — Diciembre 2024</div>
+      <div class="tl-titulo">Construcción de identidad digital</div>
+      <div class="tl-desc">Posts, carousels y stories para especialidades médicas, eventos institucionales y comunicación de guardia y turnos. Promedio de 230 seguidores nuevos por mes. Se estandariza el lenguaje visual de la marca.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-mes">Enero — Abril 2025</div>
+      <div class="tl-titulo">Especialidades y médicos con nombre propio</div>
+      <div class="tl-desc">Incorporación de contenido orientado a especialistas: Hemodinámica, Cabeza y Cuello, Traumatología, Oncología. La clínica empieza a tener rostro médico en redes sociales.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-mes">2025</div>
+      <div class="tl-titulo">Creación del perfil institucional en LinkedIn</div>
+      <div class="tl-desc">La clínica no contaba con presencia en LinkedIn. Desarrollamos y configuramos el perfil institucional desde cero, abriendo un canal estratégico para el posicionamiento con profesionales de la salud y el mundo corporativo.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-mes">Mayo — Junio 2026</div>
+      <div class="tl-titulo">Primera campaña de pauta: Webinar Hígado Graso</div>
+      <div class="tl-desc">Resultado histórico para la clínica. 96.500 visualizaciones, 1.304 nuevos seguidores en 10 días, 104 conversaciones directas. El mejor resultado desde que existe la cuenta.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== UNIDADES DE NEGOCIO ===== -->
+<section id="unidades" class="section-grey">
+  <div class="section-header">
+    <div class="fase-badge">Ecosistema</div>
+    <h2>Más que una clínica</h2>
+    <div class="divider"></div>
+    <p class="subtitle">Clínica El Castaño es el núcleo de un ecosistema de unidades de negocio con identidades propias. Cada una representa una oportunidad de comunicación diferenciada.</p>
+  </div>
+
+  <div class="cards-grid" style="max-width:1000px;">
+    <div class="card">
+      <span class="card-icon">🏥</span>
+      <h3>Clínica El Castaño</h3>
+      <p>La institución madre. Medicina de excelencia, alta complejidad, especialidades diversas. El ancla de toda la estrategia de marca.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">⛏️</span>
+      <h3>Castaño Minero</h3>
+      <p>Medicina laboral y salud ocupacional para el sector minero. Una unidad con audiencia específica, corporativa, B2B — con una estrategia de comunicación propia.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🧠</span>
+      <h3>Neurociencias</h3>
+      <p>Especialidad de alta diferenciación. Posicionamiento como referente regional en salud neurológica — con potencial de campañas de awareness de alto impacto.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">⚖️</span>
+      <h3>ART · Medicina Laboral</h3>
+      <p>Atención a trabajadores y empresas. Canal B2B con necesidades de comunicación institucional, compliance y posicionamiento ante empleadores.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:48px; max-width:800px; margin-left:auto; margin-right:auto; background:var(--dark); padding:40px; border-radius:2px; text-align:center;">
+    <div style="font-size:12px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--naranja); margin-bottom:16px;">La oportunidad estratégica</div>
+    <p style="font-size:16px; color:rgba(255,255,255,0.8); line-height:1.7; font-weight:400;">Hoy todas estas unidades comparten una sola estrategia de comunicación. La propuesta es desarrollar un plan diferenciado para cada una — con objetivos, audiencias y métricas propias — potenciando el ecosistema completo.</p>
+  </div>
+</section>
+
+<!-- ===== CASO WEBINAR ===== -->
+<section id="caso" class="section-grey">
+  <div class="section-header">
+    <div class="fase-badge">Fase 3 · Caso Real</div>
+    <h2>El webinar de hígado graso</h2>
+    <div class="divider"></div>
+    <p class="subtitle">Una campaña de 10 días que demostró lo que es posible cuando se combina contenido estratégico con inversión en pauta.</p>
+  </div>
+
+  <div class="caso-grid">
+    <div class="caso-col">
+      <div class="caso-label">Visualizaciones</div>
+      <div class="caso-numero">96.500</div>
+      <div class="caso-desc">En 10 días. El objetivo inicial era alcanzar 60.000. Lo triplicamos.</div>
+    </div>
+    <div class="caso-col">
+      <div class="caso-label">Nuevos seguidores</div>
+      <div class="caso-numero">1.304</div>
+      <div class="caso-desc">Vs. promedio mensual anterior de 230. Un mes en 10 días, multiplicado por 5,6.</div>
+    </div>
+    <div class="caso-col">
+      <div class="caso-label">Interacciones totales</div>
+      <div class="caso-numero">1.559</div>
+      <div class="caso-desc">Incluyendo 1.200 me gusta y 104 conversaciones directas con potenciales pacientes.</div>
+    </div>
+    <div class="caso-col">
+      <div class="caso-label">Consultas de turno</div>
+      <div class="caso-numero">4</div>
+      <div class="caso-desc">Pacientes que iniciaron consulta para sacar turno vía redes. Primer registro de conversión directa.</div>
+    </div>
+    <div class="caso-highlight">
+      <div class="caso-label" style="color:rgba(255,255,255,0.7);">Lo que esto demuestra</div>
+      <div class="caso-numero">× 5,6</div>
+      <div class="caso-desc">Con una sola campaña bien ejecutada, superamos 5 veces el promedio mensual de crecimiento. Imaginen esto aplicado a los servicios más rentables de la clínica, de forma sistemática y mensual.</div>
+    </div>
+  </div>
+
+  <div class="roi-box">
+    <div class="roi-label">Inversión en pauta</div>
+    <div class="roi-numero">$400.000</div>
+    <div class="roi-desc">96.500 personas alcanzadas · 1.304 seguidores nuevos · 104 conversaciones · 4 consultas de turno<br><br>
+    <strong style="color:var(--naranja);">Costo por seguidor nuevo: $306 pesos · Costo por conversación: $3.846 pesos</strong></div>
+  </div>
+</section>
+
+<!-- ===== FASE 4: NUEVA PROPUESTA ===== -->
+<section id="propuesta" class="section-light">
+  <div class="section-header">
+    <div class="fase-badge">Fase 4</div>
+    <h2>Una nueva forma de trabajar</h2>
+    <div class="divider"></div>
+    <p class="subtitle">Pasamos de ejecutar contenido a co-liderar la estrategia de crecimiento. El marketing como herramienta de facturación, no solo de comunicación.</p>
+  </div>
+
+  <div class="propuesta-grid">
+    <div class="prop-item">
+      <span class="prop-num">01</span>
+      <div class="prop-titulo">Plan Estratégico Mensual</div>
+      <div class="prop-desc">Cada mes arranca con un plan definido: objetivos, acciones, presupuesto de pauta y resultados esperados. Sin improvisación.</div>
+    </div>
+    <div class="prop-item">
+      <span class="prop-num">02</span>
+      <div class="prop-titulo">Benchmark y Market Share</div>
+      <div class="prop-desc">Investigación real de la competencia local. Pasamos de suposiciones a datos concretos para tomar mejores decisiones.</div>
+    </div>
+    <div class="prop-item">
+      <span class="prop-num">03</span>
+      <div class="prop-titulo">Campañas por Especialidad</div>
+      <div class="prop-desc">Cada servicio de la clínica puede tener su propia campaña de captación. Webinars, talleres, consultas. Con pauta y medición.</div>
+    </div>
+    <div class="prop-item">
+      <span class="prop-num">04</span>
+      <div class="prop-titulo">Reportes de Resultados</div>
+      <div class="prop-desc">Informes mensuales con métricas reales: alcance, seguidores, consultas generadas, estimación de impacto en turnos.</div>
+    </div>
+    <div class="prop-item">
+      <span class="prop-num">05</span>
+      <div class="prop-titulo">Nueva Web · Código Puro</div>
+      <div class="prop-desc">Migración de WordPress a código propio: más velocidad, mejor SEO, mayor seguridad y control total. Sin dependencias externas.</div>
+    </div>
+    <div class="prop-item">
+      <span class="prop-num">06</span>
+      <div class="prop-titulo">Trabajo con Gerencias</div>
+      <div class="prop-desc">Integración con Gerencia Operativa y Comercial para alinear objetivos de marketing con objetivos de facturación real.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ROADMAP ===== -->
+<section id="roadmap" class="section-grey">
+  <div class="section-header">
+    <div class="fase-badge">Fase 5</div>
+    <h2>Roadmap de trabajo</h2>
+    <div class="divider"></div>
+    <p class="subtitle">Tres etapas claras. Cada una con entregables concretos y métricas de seguimiento.</p>
+  </div>
+
+  <div class="roadmap">
+    <div class="rm-col">
+      <div class="rm-fase">Etapa 1</div>
+      <div class="rm-periodo">Julio — Agosto 2026</div>
+      <ul class="rm-items">
+        <li>Diagnóstico completo de todos los canales</li>
+        <li>Benchmark de competencia local</li>
+        <li>Relevamiento de facturación por especialidad</li>
+        <li>Definición de KPIs con Gerencia</li>
+        <li>Auditoría web y SEO</li>
+      </ul>
+    </div>
+    <div class="rm-col">
+      <div class="rm-fase">Etapa 2</div>
+      <div class="rm-periodo">Septiembre — Noviembre 2026</div>
+      <ul class="rm-items">
+        <li>Primer plan estratégico mensual</li>
+        <li>2 campañas de especialidad con pauta</li>
+        <li>Lanzamiento de nueva web</li>
+        <li>Activación de LinkedIn institucional</li>
+        <li>Primer reporte de resultados</li>
+      </ul>
+    </div>
+    <div class="rm-col">
+      <div class="rm-fase">Etapa 3</div>
+      <div class="rm-periodo">Diciembre 2026 — 2027</div>
+      <ul class="rm-items">
+        <li>Ajuste de estrategia con datos reales</li>
+        <li>Campaña de fin de año</li>
+        <li>Plan anual 2027 con objetivos de facturación</li>
+        <li>Evaluación de nuevos canales</li>
+        <li>Revisión de acuerdo comercial</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KPIs ===== -->
+<section id="kpis" class="section-light">
+  <div class="section-header">
+    <div class="fase-badge">KPIs</div>
+    <h2>Qué vamos a medir juntos</h2>
+    <div class="divider"></div>
+    <p class="subtitle">Métricas reales, acordadas con las gerencias. El marketing deja de ser un gasto para convertirse en una variable de crecimiento.</p>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-item">
+      <span class="kpi-icon">📈</span>
+      <div class="kpi-nombre">Seguidores</div>
+      <div class="kpi-meta">Meta: +800/mes promedio</div>
+    </div>
+    <div class="kpi-item">
+      <span class="kpi-icon">👥</span>
+      <div class="kpi-nombre">Consultas generadas</div>
+      <div class="kpi-meta">Meta: registrar y crecer mes a mes</div>
+    </div>
+    <div class="kpi-item">
+      <span class="kpi-icon">🏥</span>
+      <div class="kpi-nombre">Turnos por canal digital</div>
+      <div class="kpi-meta">Meta: baseline Q3 + 20% Q4</div>
+    </div>
+    <div class="kpi-item">
+      <span class="kpi-icon">🌐</span>
+      <div class="kpi-nombre">Tráfico web</div>
+      <div class="kpi-meta">Meta: +40% post-nueva web</div>
+    </div>
+    <div class="kpi-item">
+      <span class="kpi-icon">⭐</span>
+      <div class="kpi-nombre">Reseñas Google + FB</div>
+      <div class="kpi-meta">Meta: +30 reseñas en 90 días</div>
+    </div>
+    <div class="kpi-item">
+      <span class="kpi-icon">💰</span>
+      <div class="kpi-nombre">Alcance por pauta</div>
+      <div class="kpi-meta">Meta: ROI positivo por campaña</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 60px; max-width: 700px; margin-left:auto; margin-right:auto; background: var(--gris-claro); border: 1px solid var(--gris-linea); padding: 36px; text-align:center; border-radius:2px;">
+    <div class="eyebrow">Acuerdo de trabajo</div>
+    <h3 style="font-size:22px; margin-bottom:16px;">Integración con Gerencia Operativa y Comercial</h3>
+    <p style="font-size:15px; color:var(--gris-medio); line-height:1.7;">Para que el marketing impacte en la facturación, necesitamos trabajar en conjunto. Datos de consultas, ocupación de agenda y objetivos comerciales son el insumo que convierte una campaña en una inversión con retorno medible.</p>
+  </div>
+</section>
+
+<!-- ===== BENCHMARK / MARKET SHARE ===== -->
+<section id="benchmark" class="section-grey">
+  <div class="section-header">
+    <div class="fase-badge">Benchmark · Mercado</div>
+    <h2>Dónde estamos parados en San Juan</h2>
+    <div class="divider"></div>
+    <p class="subtitle">
+      La provincia tiene 822.853 habitantes (Censo 2022). El Gran San Juan concentra el 72% de esa población — unas 590.000 personas. Este es el mercado que estamos disputando.
+    </p>
+  </div>
+
+  <!-- TABLA COMPARATIVA -->
+  <div style="width:100%; max-width:1000px; margin:0 auto 60px; overflow-x:auto;">
+    <table class="diag-table" style="width:100%;">
+      <thead>
+        <tr>
+          <th>Institución</th>
+          <th>Instagram</th>
+          <th>Facebook</th>
+          <th>Actividad digital</th>
+          <th>Posición</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff8f8;">
+          <td><strong style="color:var(--rojo);">Clínica El Castaño</strong></td>
+          <td><strong>9.125</strong></td>
+          <td><strong>11.000</strong></td>
+          <td><span class="tag-ok">ACTIVA · CON PAUTA</span></td>
+          <td><strong style="color:var(--rojo);">2° en Instagram</strong></td>
+        </tr>
+        <tr>
+          <td>Sanatorio Argentino</td>
+          <td>31.000</td>
+          <td>N/D</td>
+          <td><span class="tag-ok">MUY ACTIVA</span></td>
+          <td>1° en Instagram</td>
+        </tr>
+        <tr>
+          <td>Sanatorio San Juan</td>
+          <td>11.000</td>
+          <td>N/D</td>
+          <td><span class="tag-opp">ACTIVA</span></td>
+          <td>3° en Instagram</td>
+        </tr>
+        <tr>
+          <td>Clínica Mercedario</td>
+          <td>9.667</td>
+          <td>6.903</td>
+          <td><span class="tag-opp">MODERADA</span></td>
+          <td>Especializada en trauma</td>
+        </tr>
+        <tr>
+          <td>Hospital Privado (CMSJ)</td>
+          <td>3.562</td>
+          <td>4.043</td>
+          <td><span class="tag-sin">BAJA</span></td>
+          <td>Rezagado en redes</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="nota" style="margin-bottom:48px;">
+    * Datos de seguidores obtenidos de perfiles públicos de Instagram y Facebook — junio 2026. Los datos de facturación y market share real requieren investigación con la clínica y fuentes del sector.
+  </p>
+
+  <!-- OPORTUNIDAD DE MERCADO -->
+  <div style="max-width:1000px; width:100%; margin:0 auto;">
+    <div style="font-size:12px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--naranja); margin-bottom:24px; text-align:center;">La oportunidad concreta</div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:2px;">
+      
+      <div style="background:var(--white); border:1px solid var(--gris-linea); padding:36px 24px; text-align:center;">
+        <div style="font-size:clamp(32px,4vw,48px); font-weight:900; color:var(--dark); line-height:1; margin-bottom:8px;">590.000</div>
+        <div style="font-size:12px; font-weight:700; color:var(--gris-medio); letter-spacing:0.08em; text-transform:uppercase;">Habitantes en el Gran San Juan</div>
+      </div>
+
+      <div style="background:var(--white); border:1px solid var(--gris-linea); padding:36px 24px; text-align:center;">
+        <div style="font-size:clamp(32px,4vw,48px); font-weight:900; color:var(--dark); line-height:1; margin-bottom:8px;">~65.000</div>
+        <div style="font-size:12px; font-weight:700; color:var(--gris-medio); letter-spacing:0.08em; text-transform:uppercase;">Seguidores totales del mercado en Instagram</div>
+        <div style="font-size:11px; color:var(--gris-medio); margin-top:8px; font-style:italic;">Esto es aproximado, verifícalo</div>
+      </div>
+
+      <div style="background:var(--white); border:1px solid var(--gris-linea); padding:36px 24px; text-align:center;">
+        <div style="font-size:clamp(32px,4vw,48px); font-weight:900; color:var(--rojo); line-height:1; margin-bottom:8px;">14%</div>
+        <div style="font-size:12px; font-weight:700; color:var(--gris-medio); letter-spacing:0.08em; text-transform:uppercase;">Share digital actual de El Castaño</div>
+      </div>
+
+      <div style="background:var(--dark); border:1px solid var(--dark); padding:36px 24px; text-align:center;">
+        <div style="font-size:clamp(32px,4vw,48px); font-weight:900; color:var(--naranja); line-height:1; margin-bottom:8px;">25%</div>
+        <div style="font-size:12px; font-weight:700; color:rgba(255,255,255,0.6); letter-spacing:0.08em; text-transform:uppercase;">Meta realista en 12 meses</div>
+        <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-top:8px; font-style:italic;">~20.000 seguidores</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ANÁLISIS NARRATIVO -->
+  <div style="max-width:860px; width:100%; margin:48px auto 0; display:grid; grid-template-columns:1fr 1fr; gap:24px; text-align:left;">
+    
+    <div style="background:var(--white); border:1px solid var(--gris-linea); padding:32px; border-radius:2px;">
+      <div style="font-size:11px; font-weight:800; color:var(--rojo); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:12px;">El líder: Sanatorio Argentino</div>
+      <p style="font-size:14px; color:var(--gris-medio); line-height:1.7;">31.000 seguidores, presencia activa, 3 sedes. Es el referente digital actual. Pero no es inalcanzable: en 21 meses pasamos de 3.300 a 9.125 sin pauta sistemática. Con estrategia consistente, podemos recortar esa brecha.</p>
+    </div>
+
+    <div style="background:var(--white); border:1px solid var(--gris-linea); padding:32px; border-radius:2px;">
+      <div style="font-size:11px; font-weight:800; color:var(--naranja); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:12px;">La ventaja nuestra</div>
+      <p style="font-size:14px; color:var(--gris-medio); line-height:1.7;">Ninguno de los competidores mostró campañas de pauta de alto impacto como el webinar de hígado graso. El Castaño es la única clínica de San Juan con evidencia pública de 96.500 visualizaciones en una sola campaña. Eso es diferenciación real.</p>
+    </div>
+
+    <div style="background:var(--white); border:1px solid var(--gris-linea); padding:32px; border-radius:2px;">
+      <div style="font-size:11px; font-weight:800; color:var(--gris-medio); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:12px;">La oportunidad en Facebook</div>
+      <p style="font-size:14px; color:var(--gris-medio); line-height:1.7;">Con 11.000 seguidores en Facebook y solo 13 reseñas, hay un universo de pacientes que nunca se les pidió que opinen. Una campaña de reseñas puede transformar ese número y mejorar el posicionamiento en Google Maps.</p>
+    </div>
+
+    <div style="background:var(--white); border:1px solid var(--gris-linea); padding:32px; border-radius:2px;">
+      <div style="font-size:11px; font-weight:800; color:var(--dark); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:12px;">Lo que nadie está haciendo</div>
+      <p style="font-size:14px; color:var(--gris-medio); line-height:1.7;">LinkedIn médico activo, SEO de especialidades, Google Business optimizado, campañas por especialidad con pauta mensual. Ningún competidor en San Juan tiene esto funcionando de forma integrada. Es tierra de nadie — y es nuestra oportunidad.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ===== CIERRE ===== -->
+<section id="cierre">
+  <div class="eyebrow">Junio 2026</div>
+  <h2>Construimos esto juntos.<br>Lo que viene es mejor.</h2>
+  <div class="divider"></div>
+  <p class="subtitle">Los números ya demostraron que el camino funciona. La propuesta es hacerlo con plan, con presupuesto y con los objetivos claros que la clínica necesita hoy.</p>
+  <div style="margin-top:48px; display:flex; gap:32px; flex-wrap:wrap; justify-content:center;">
+    <div style="text-align:center;">
+      <div style="font-size:42px; font-weight:900; color:var(--naranja);">9.125</div>
+      <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.4); letter-spacing:0.1em; text-transform:uppercase; margin-top:4px;">Seguidores hoy</div>
+    </div>
+    <div style="width:1px; background:rgba(255,255,255,0.1);"></div>
+    <div style="text-align:center;">
+      <div style="font-size:42px; font-weight:900; color:var(--naranja);">3.300</div>
+      <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.4); letter-spacing:0.1em; text-transform:uppercase; margin-top:4px;">Donde arrancamos</div>
+    </div>
+    <div style="width:1px; background:rgba(255,255,255,0.1);"></div>
+    <div style="text-align:center;">
+      <div style="font-size:42px; font-weight:900; color:var(--naranja);">+176%</div>
+      <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.4); letter-spacing:0.1em; text-transform:uppercase; margin-top:4px;">Crecimiento en 21 meses</div>
+    </div>
+  </div>
+  <div class="cierre-firma">
+    Clínica El Castaño · <span>Estrategia Digital 2026–2027</span>
+  </div>
+</section>
+
+</body>
+</html>
